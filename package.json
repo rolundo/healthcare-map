@@ -1,0 +1,21 @@
+{
+  "name": "healthcare-map-backend",
+  "version": "1.0.0",
+  "description": "Backend for healthcare-map application",
+  "main": "server.js",
+  "author": "Roland Rodriguez",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.4.0"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "heroku-postbuild": "cd client && yarn && yarn run build"
+  }
+}
