@@ -93,7 +93,7 @@ export default class HealthcareMap extends React.Component {
 
   async componentDidMount() {
     try {
-      const res = await axios.get('http://localhost:5000/locations')
+      const res = await axios.get('https://healthcare-map.herokuapp.com/locations')
       this.setState({
         clinics: res.data.filter(l => l.type === 'clinic'),
         dentists: res.data.filter(l => l.type === 'dentist'),

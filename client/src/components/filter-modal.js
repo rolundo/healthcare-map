@@ -48,7 +48,7 @@ export default class FilterModal extends React.Component {
     }
 
     try {
-      const res = await axios.post('http://localhost:5000/locations/filter', body)
+      const res = await axios.post('https://healthcare-map.herokuapp.com/locations/filter', body)
 
       this.props.filterLocations(res.data)
       this.props.handleHide()
