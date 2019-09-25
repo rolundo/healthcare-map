@@ -22,6 +22,9 @@ const connection = mongoose.connection
 connection.once('open', () => {
   console.log('MongoDB database connection established successfully')
 })
+connection.on('error', (e) => {
+  console.log(`Error establishing connection to MongoDB: ${e.message}`)
+})
 
 const locationRouter = require('./routes/locations')
 
