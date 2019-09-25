@@ -11,7 +11,7 @@ app.use(cors())
 app.use(express.json())
 
 // Set up static file directory
-// app.use(express.static(path.join(__dirname, 'client/build')))
+app.use(express.static(path.join(__dirname, 'client/build')))
 
 // Defines the connection string using the environment variable defined in .env
 // This connection string is pulled from the MongoDB Atlas cluster page
