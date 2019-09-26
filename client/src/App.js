@@ -60,8 +60,8 @@ const markerHtmlStyles = (type) => {
     width: 1rem;
     height: 1rem;
     display: block;
-    left: -.5rem;
-    top: -.5rem;
+    left: -.25rem;
+    top: -.25rem;
     position: relative;
     border-radius: 1rem 1rem 0;
     transform: rotate(45deg);
@@ -72,9 +72,9 @@ const markerHtmlStyles = (type) => {
 const icon = (name) => {
   return L.divIcon({
     className: "my-custom-pin",
-    iconAnchor: [0, 24],
-    labelAnchor: [-6, 0],
-    popupAnchor: [0, -36],
+    iconAnchor: [0, 12],
+    labelAnchor: [-12, 0],
+    popupAnchor: [4, -18],
     html: `<span style="${markerHtmlStyles(name)}" />`
   })
 }
