@@ -13,6 +13,15 @@ app.use(express.json())
 // Set up static file directory
 app.use(express.static(path.join(__dirname, 'client/build')))
 
+// Set server to redirect http traffic to https
+app.use((req, res, next) => {
+  if (req.header('x-forwarded-proto') !== 'https') {
+    res.redirect(`https://${req.header('host')}${req.url}`)
+  } else {
+    next();
+  }
+});
+
 // Defines the connection string using the environment variable defined in .env
 // This connection string is pulled from the MongoDB Atlas cluster page
 const uri = process.env.ATLAS_URI
