@@ -2,6 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
 const path = require('path')
+var enforce = require('express-sslify');
 require('dotenv').config()
 
 const app = express()
@@ -13,14 +14,8 @@ app.use(express.json())
 // Set up static file directory
 app.use(express.static(path.join(__dirname, 'client/build')))
 
-// Set server to redirect http traffic to https
-app.use((req, res, next) => {
-  if (req.header('x-forwarded-proto') !== 'https') {
-    res.redirect(`https://${req.header('host')}${req.url}`)
-  } else {
-    next();
-  }
-});
+// Use enforce.HTTPS({ trustProtoHeader: true }) since you're behind Heroku's reverse proxy
+app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 // Defines the connection string using the environment variable defined in .env
 // This connection string is pulled from the MongoDB Atlas cluster page
